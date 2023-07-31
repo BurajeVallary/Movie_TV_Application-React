@@ -4,10 +4,10 @@ const Navbar = ({onSearch}) => {
     const [searchValue, setSearchValue] = useState("");
     const handleInput = (event) => {
       setSearchValue(event.target.value);
-      console.log("I am typing", event.target.value);
+      console.log("typing", event.target.value);
     };
     const handleSearchClick = () => {
-      console.log("I am searching", searchValue);
+      console.log("searching", searchValue);
       onSearch(searchValue)
     };
 

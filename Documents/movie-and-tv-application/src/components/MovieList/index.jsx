@@ -4,9 +4,11 @@ import './style.css';
 import ImageContainer from "../../atoms";
 import Navbar from "../../Navigation";
 import { Link } from "react-router-dom";
+import { getGenre } from "../../utilis/utilities";
 
 
-// const IMAGE_BASE_URL=process.env.REACT_APP_IMAGE_BASE_URL;
+
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
 const MovieList = () => {
@@ -15,7 +17,7 @@ const MovieList = () => {
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
-    // Fetch movies when the component mounts
+   
     const fetchMovies = async () => {
       try {
         const moviesData = await getMovies();
@@ -23,15 +25,18 @@ const MovieList = () => {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching movies:", error.message);
-        setLoading(false); // Set loading to false even if there's an error
+        setLoading(false); 
         setError("Failed to fetch movies.");
       }
     };
+
+
+    
     fetchMovies();
   }, []);
   const handleSearchFunction = async (searchValue) => {
     if (!searchValue.trim()) {
-      // If searchValue is empty or contains only spaces, fetch all movies
+     
       try {
         const moviesData = await getMovies();
         setMovies(moviesData.results);
@@ -62,9 +67,16 @@ const MovieList = () => {
         setError("Failed to fetch movies.");
       }
     }
-    // Set searchPerformed to true after the search
+  
     setSearchPerformed(true);
   };
+
+
+
+  
+
+
+  
   if (loading) {
     return <h1>Loading....</h1>;
   }
@@ -85,7 +97,9 @@ const MovieList = () => {
           ))
         )}
       </div>
-    </div>
+    </div>                                                                               
   );
 };
+
+
 export default MovieList;

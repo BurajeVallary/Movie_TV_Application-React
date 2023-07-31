@@ -4,6 +4,8 @@ import './App.css';
 import MovieList from './components/MovieList/'
 import Navbar from './Navigation';
 import Carousels from './components/MovieList/carosel';
+import Footer from './components/MovieList/footer';
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
         <Navbar />
         <Carousels/>
         <MovieList/>
+        <Footer/>
        
         <Routes>
           {/* Use relative paths for 'path' attribute */}
